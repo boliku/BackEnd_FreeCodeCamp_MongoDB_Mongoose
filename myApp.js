@@ -1,7 +1,14 @@
 require('dotenv').config();
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const mongoose = require('mongoose');
 
+// Obtén la URL de la base de datos desde las variables de entorno
+const MONGO_URI = process.env.MONGO_URI;
 
 let Person;
+
+mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+
 
 const createAndSavePerson = (done) => {
   done(null /*, data*/);
